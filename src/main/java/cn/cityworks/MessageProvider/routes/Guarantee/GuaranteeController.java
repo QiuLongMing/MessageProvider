@@ -32,7 +32,7 @@ public class GuaranteeController {
     /*交通状况模块*/
     @RequestMapping("/getTtraffic")
     public Object getTtraffic(){
-
+        int a=100;
         Map<String, Object> map = new LinkedHashMap<String, Object>();
         Map<String, Object> map1 = new LinkedHashMap<String, Object>();
 
