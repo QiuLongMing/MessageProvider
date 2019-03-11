@@ -148,7 +148,7 @@ public class GuaranteeController {
     /*场馆安检模块*/
     @RequestMapping("/getSecurity")
     public Object getSecurity () {
-
+        int a=100;
         Map<String, Object> map = new LinkedHashMap<String, Object>();
         Map<String, Object> mapData = new LinkedHashMap<String, Object>();
         map.put("title", "场馆安检");
