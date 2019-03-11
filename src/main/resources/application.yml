@@ -1,0 +1,44 @@
+server:
+  port: 11531
+
+spring:
+  application:
+    name: MessageProvider
+  datasource:
+      type: com.zaxxer.hikari.HikariDataSource #采用的数据库连接池
+      url: jdbc:postgresql://localhost:5432/indocker #数据库连接url
+      username: postgres #用户名
+      password: 123456 #密码
+      driver-class-name: org.postgresql.Driver
+      maximumPoolSize: 1
+      maxLifetime: 100
+  mybatis:
+      type-aliases-package: cn.cityworks.MessageProvider.domain
+  csvdatasource: E:\Economics\Data\
+
+info:
+  app:
+    name: ${spring.application.name}
+    version: 1.0.0
+    time: 2018年11月1日 11:40:21
+  describe: 福州经济驾驶舱数据提供
+  home: /
+  author: Claude....................
+  licensed: MIT Licensed
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    hostname: ${spring.application.name}
+    health-check-url-path: acutator/info
+
+  client:
+    healthcheck:
+      enable: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+    register-with-eureka: false
+
+    fetch-registry: false
+
